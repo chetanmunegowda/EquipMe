@@ -1,0 +1,21 @@
+body {
+  background-color: #C0C0C0;
+  color: #000000;
+}
+
+#equipme-header {
+  border-radius: 0;
+  background-color: #222;
+  border-color: #330000;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  background-color: #222;
+  text-align: center;
+  color:#777;
+}
