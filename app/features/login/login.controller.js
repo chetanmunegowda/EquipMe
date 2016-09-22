@@ -1,30 +1,40 @@
 (function (angular) {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('equipMe.login')
-        .controller('loginController', loginController);
+  angular
+  .module('equipMe.login')
+  .controller('loginController', loginController);
 
-    function loginController($state, facebookService) {
-        var vm = this;
-        vm.login = login;
-        vm.loginwithfb = loginwithfb;
+  function loginController($state, $facebook) {
+    var vm = this;
+    vm.login = login;
+    vm.loginwithfb = loginwithfb;
 
-        function login() {
-            console.log("hello chetan!");
-            if(vm.username === 'user' && vm.password === 'user')
-                $state.go('productsPage');
-            else
-            console.log("Error");
-        }
-
-        function loginwithfb() {
-            console.log("hello chetan!");
-            facebookService.getMyLastName()
-            .then(function(response){
-              console.log(response);
-              var lastname = response.lastname;
-            })
-        }
+    function login() {
+      console.log("hello chetan!");
+      if(vm.username === 'user' && vm.password === 'user')
+      $state.go('productsPage');
+      else
+      console.log("Error");
     }
+
+    function refresh() {
+      $facebook.api("/me").then(function(response) {
+        console.log(response);
+      },
+      function(err) {
+        console.log(err);
+      });
+    }
+
+    refresh();
+
+    function loginwithfb() {
+      $facebook.login().then(function() {
+        console.log("hello chetan");
+        refresh();
+      });
+    }
+
+  }
 }(angular));

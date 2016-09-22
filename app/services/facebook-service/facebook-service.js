@@ -9,7 +9,6 @@
         console.log("hello fb");
         var deferred = $q.defer();
         FB.api('/me', {
-          fields: 'last_name'
         }, function(response) {
           console.log(response);
           if (!response || response.error) {
