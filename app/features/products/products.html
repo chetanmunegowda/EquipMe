@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-xs-4">
             Enter the product you want to search
         </div>
-        <div class="col-sm-8">
+        <div class="col-xs-8">
             <div class="form-group">
                 <input type="text" class="form-control" id="productname" ng-model="productsVm.productname">
             </div>
@@ -11,8 +11,15 @@
     </div>
 
     <div class="row">
-        <div ng-repeat="product in productsVm.products | filter:productsVm.productname" class="col-sm-4">
-            {{product.name}}
+        <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict">
+            <div class="clearfix" ng-if="$index % 4 == 0"></div>
+            <div class="col-xs-3" id="prod-item">
+                <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
+                <div class="col-xs-offset-2">
+                    <span>{{product.prodName}}</span><br/>
+                    <span>Price: {{product.prodPrice | currency}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -8,7 +8,11 @@
             'equipMe.login',
             'equipMe.register',
             'equipMe.products',
-            'ngFacebook'
+            'equipMe.services',
+            'ngFacebook',
+
+            //directives
+            'equipMe.pwCheck'
         ])
         .config(moduleConfig)
         .run(function ($rootScope) {
@@ -44,6 +48,6 @@
                 templateUrl: 'index.html',
                 abstract: true
             });
-        $facebookProvider.setAppId('283204175137887');
+        $facebookProvider.setAppId('1198508096838563');
     }
 }(angular));

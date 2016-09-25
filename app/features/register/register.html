@@ -13,15 +13,16 @@
                     <input type="password" name="password" id="password" class="form-control" ng-model="registerVm.password" required />
                     <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
                 </div>
-                <div class="form-group" ng-class="{ 'has-error': form.confirmpassword.$dirty && form.confirmpassword.$error.required && form.confirmpassword.$error }">
+                <div class="form-group" ng-class="{ 'has-error': form.confirmpassword.$dirty && form.confirmpassword.$error.required || form.confirmpassword.$error.pwmatch }">
                     <label for="confirmpassword">Confirm Password</label>
-                    <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" ng-model="registerVm.confirmpassword"  ng-pattern="\b{{registerVm.password}}\b" required />
+                    <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" ng-model="registerVm.confirmpassword" pw-check="registerVm.password"  ng-required="" />
                     <span ng-if="form.confirmpassword.$dirty && form.confirmpassword.$error.required" class="help-block">Password is required</span>
-                    <span ng-if="form.confirmpassword.$dirty && form.confirmpassword.$error" class="help-block">Confirm Password must be same as Password</span>
+                    <span ng-show="form.confirmpassword.$dirty && form.confirmpassword.$error.pwmatch" class="help-block">Password should match</span>
+
                 </div>
                 <div class="form-group" ng-class="{ 'has-error': form.emailaddress.$dirty && form.emailaddress.$error.required || form.emailaddress.$error.email }">
                     <label for="emailaddress">Email Id</label>
-                    <input type="email" name="emailaddress" id="emailaddress" class="form-control" ng-model="registerVm.emailaddress" required />
+                    <input type="email" name="emailaddress" id="emailaddress" class="form-control" ng-model="registerVm.emailaddress" ng-required="" />
                     <span ng-if="form.emailaddress.$dirty && form.emailaddress.$error.required" class="help-block">Email Address is required</span>
                     <span ng-if="form.emailaddress.$dirty && form.emailaddress.$error.email" class="help-block">Email Address is not valid</span>
                 </div>
