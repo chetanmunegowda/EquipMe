@@ -1,1 +1,18 @@
-<h1>Products Page Coming Soon</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            Enter the product you want to search
+        </div>
+        <div class="col-sm-8">
+            <div class="form-group">
+                <input type="text" class="form-control" id="productname" ng-model="productsVm.productname">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-repeat="product in productsVm.products | filter:productsVm.productname" class="col-sm-4">
+            {{product.name}}
+        </div>
+    </div>
+</div>
