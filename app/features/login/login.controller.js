@@ -5,17 +5,20 @@
   .module('equipMe.login')
   .controller('loginController', loginController);
 
-  function loginController($state, $facebook) {
+  function loginController($state, $facebook, Notification) {
     var vm = this;
     vm.login = login;
     vm.loginwithfb = loginwithfb;
 
     function login() {
       console.log("hello chetan!");
-      if(vm.username === 'user' && vm.password === 'user')
-      $state.go('productsPage');
-      else
-      console.log("Error");
+      if(vm.username === 'user' && vm.password === 'user') {
+          $state.go('productsPage');
+      }
+      else {
+          console.log("Error");
+          Notification.error({message: "Enter correct login details"});
+      }
     }
 
     function refresh() {

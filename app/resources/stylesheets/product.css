@@ -1,4 +1,17 @@
 .product-img {
+    margin-left: 10%;
     max-width:75%;
     max-height:75%;
+}
+
+#prod-item {
+    display: inline-block;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-size: 1rem;
+    vertical-align: top;
+    box-shadow: 0 0 5px #ddd;
+    cursor: pointer;
 }

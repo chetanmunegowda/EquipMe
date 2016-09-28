@@ -4,32 +4,15 @@
     angular
         .module('equipMe.products')
         .controller('productsController', productsController)
-        .filter('category', function () {
-            return function (input, techs) {
-                console.log(input);
-                console.log(techs);
-                if (!techs || techs.length === 0) return input;
-                var out = [];
-                angular.forEach(input, function (item) {
-                    angular.forEach(techs, function (tech) {
-                        if (item.prodCategory === tech.prodCategory) {
-                            console.log(item);
-                            out.push(item);
-                        }
-                    });
-                });
-                return out;
-            }
-        });
+        .filter('category', productCategorFilter);
 
 
-    function productsController(productService, categoryFilter, $filter) {
+    function productsController(productService, $filter, ngCart) {
         var vm = this;
 
         productService.getAllProducts()
             .then(function success(response) {
                 vm.products = response;
-                console.log(vm.products);
                 vm.productCategory = UniqueArraybyId(response, "prodCategory");
             }, function error(error) {
                 console.log(error);
@@ -48,7 +31,20 @@
             });
             return output;
         };
+    }
 
-
+    function productCategorFilter () {
+        return function (input, categories) {
+            if (!categories || categories.length === 0) return input;
+            var out = [];
+            angular.forEach(input, function (item) {
+                angular.forEach(categories, function (category) {
+                    if (item.prodCategory === category.prodCategory) {
+                        out.push(item);
+                    }
+                });
+            });
+            return out;
+        }
     }
 }(angular));

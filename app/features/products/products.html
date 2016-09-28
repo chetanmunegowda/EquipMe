@@ -9,44 +9,37 @@
             </div>
         </div>
     </div>
-
     <div class="row">
-        <div class="col-xs-4">
-            Filter By Category
-        </div>
-        <div class="col-xs-8">
-            <span ng-repeat="category in productsVm.productCategory">
+        <div class="col-xs-3">
+            <div class="row">
+                Select the product category you want <br/>
+                <span ng-repeat="category in productsVm.productCategory"><br/>
+                         <label><input type="checkbox" ng-model="category.on"/> {{category.prodCategory}}</label>
+                    </span>
+            </div>
+            <br/>
+            <div class="row">
+                Sort Products By Price <br/>
                 <label>
-                    <input type="checkbox" ng-model="category.on" />
-                    {{ category.prodCategory }}
-                    {{ category.on }}
-                </label>
-            </span>
-        </div>
-    </div>
-
-   <!-- <div class="row">
-        <div class="col-xs-4">
-            Sort By Price Range
-        </div>
-        <div class="col-xs-8">
-            <span ng-repeat="category in productsVm.productCategory">
+                    <input type="radio" ng-model="productsVm.prodPrice" value="prodPrice">
+                    Low To High
+                </label><br/>
                 <label>
-                    <input type="radio" />
-                    {{ category }}
-                </label>
-            </span>
+                    <input type="radio" ng-model="productsVm.prodPrice" value="-prodPrice">
+                    High To Low
+                </label><br/>
+            </div>
         </div>
-    </div>
--->
-    <div class="row">
-        <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true})">
-            <div class="clearfix" ng-if="$index % 4 == 0"></div>
-            <div class="col-xs-3" id="prod-item">
-                <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
-                <div class="col-xs-offset-2">
-                    <span>{{product.prodName}}</span><br/>
-                    <span>Price: {{product.prodPrice | currency}}</span>
+        <div class="col-xs-9">
+            <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice">
+                <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                <div class="col-xs-4" id="prod-item">
+                    <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
+                    <div class="col-xs-offset-2">
+                        <span>{{product.prodName}}</span><br/>
+                        <span>Price: {{product.prodPrice | currency}}</span>
+                        <ngcart-addtocart id="item3" name="My Item #3" price="25.75" quantity="3" quantity-max="10">Add to Cart</ngcart-addtocart>
+                    </div>
                 </div>
             </div>
         </div>

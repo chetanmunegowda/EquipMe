@@ -9,7 +9,11 @@
             'equipMe.register',
             'equipMe.products',
             'equipMe.services',
+
+            //Third Party Directives
+            'ngCart',
             'ngFacebook',
+            'ui-notification',
 
             //directives
             'equipMe.pwCheck'
@@ -39,7 +43,7 @@
         });
 
 
-    function moduleConfig($facebookProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
+    function moduleConfig($facebookProvider, $urlRouterProvider, $stateProvider, $locationProvider, NotificationProvider) {
         $locationProvider.hashPrefix();
         $urlRouterProvider.otherwise('/login');
         $stateProvider
@@ -48,6 +52,16 @@
                 templateUrl: 'index.html',
                 abstract: true
             });
+
+        NotificationProvider.setOptions({
+            delay: 10000,
+            startTop: 80,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'center',
+            positionY: 'top'
+        });
         $facebookProvider.setAppId('1198508096838563');
     }
 }(angular));
