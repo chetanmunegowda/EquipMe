@@ -5,13 +5,19 @@
 }
 
 #prod-item {
-    display: inline-block;
-    padding: 10px;
+    padding: 30px;
     background: #fff;
     border: 1px solid #ddd;
-    font-size: 16px;
     font-size: 2rem;
-    vertical-align: top;
     box-shadow: 0 0 5px #ddd;
     cursor: pointer;
+}
+
+#prod-category .borderline {
+    padding-bottom:1em;
+    border-bottom: thick solid #000;
+}
+
+#prod-category strong {
+    font-size: 1.5em;
 }

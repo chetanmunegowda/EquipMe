@@ -9,6 +9,7 @@
             'equipMe.register',
             'equipMe.products',
             'equipMe.services',
+            'equipMe.productsDesc',
 
             //Third Party Directives
             'ngCart',
@@ -16,7 +17,8 @@
             'ui-notification',
 
             //directives
-            'equipMe.pwCheck'
+            'equipMe.pwCheck',
+            'equipMe.backButton'
         ])
         .config(moduleConfig)
         .run(function ($rootScope) {
@@ -54,7 +56,7 @@
             });
 
         NotificationProvider.setOptions({
-            delay: 10000,
+            delay: 2000,
             startTop: 80,
             startRight: 10,
             verticalSpacing: 20,

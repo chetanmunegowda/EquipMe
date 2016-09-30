@@ -20,7 +20,6 @@
                     return result.data;
                 })
                 .error(function (err) {
-                    //Notification.error('Error occurred while saving. Please try again!');
                     $log.error(user);
                     $log.error(err.data);
                 });
@@ -96,6 +95,44 @@
             }]);
 
             return deferred.promise;
+        }
+
+        /**
+         * Delete Product
+         * @param part
+         * @returns {*}
+         */
+        function deleteProduct(productId) {
+            return $http.delete('/register', {
+                id: productId
+            })
+                .success(function (result) {
+                    $log.debug("Product Deleted Created")
+                    return result.data;
+                })
+                .error(function (err) {
+                    $log.error(user);
+                    $log.error(err.data);
+                });
+        }
+
+        /**
+         * Modify Product
+         * @param part
+         * @returns {*}
+         */
+        function updateProduct(dataObj) {
+            return $http.put('/register', {
+                data: dataObj
+            })
+                .success(function (result) {
+                    $log.debug("Product modified Created")
+                    return result.data;
+                })
+                .error(function (err) {
+                    $log.error(user);
+                    $log.error(err.data);
+                });
         }
     }
 }(angular));

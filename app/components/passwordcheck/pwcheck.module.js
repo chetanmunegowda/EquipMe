@@ -5,4 +5,4 @@
         .module('equipMe.pwCheck', [
         ]);
 
-}(angular))
+}(angular));

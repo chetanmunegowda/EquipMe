@@ -1,25 +1,32 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-4">
-            Enter the product you want to search
-        </div>
-        <div class="col-xs-8">
-            <div class="form-group">
-                <input type="text" class="form-control" id="productname" ng-model="productsVm.productname">
+        <div class="col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control" id="productname" ng-model="productsVm.productname"
+                       placeholder="Enter product name you want to search" ng-model-options="{debounce: 500}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                 </span>
             </div>
         </div>
     </div>
+    <br/>
+    <div class="col-xs-offset-8 col-xs-4">
+        <h3>Summary <span>(ngcart-summary)</span></h3>
+        <ngcart-summary></ngcart-summary>
+    </div>
+    <br/>
     <div class="row">
-        <div class="col-xs-3">
-            <div class="row">
-                Select the product category you want <br/>
-                <span ng-repeat="category in productsVm.productCategory"><br/>
-                         <label><input type="checkbox" ng-model="category.on"/> {{category.prodCategory}}</label>
+        <div class="col-xs-3" id="prod-category">
+            <div class="row borderline">
+                <strong>Category</strong><br/>
+                <span ng-repeat="category in productsVm.productCategory">
+                         <label><input type="checkbox" ng-model="category.on"/>&nbsp;&nbsp;&nbsp;{{category.prodCategory}}</label><br/>
                     </span>
             </div>
             <br/>
             <div class="row">
-                Sort Products By Price <br/>
+                <strong>Price</strong> <br/>
                 <label>
                     <input type="radio" ng-model="productsVm.prodPrice" value="prodPrice">
                     Low To High
@@ -31,17 +38,28 @@
             </div>
         </div>
         <div class="col-xs-9">
-            <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice">
+            <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice | filter:productsVm.productname as results">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                <div class="col-xs-4" id="prod-item">
-                    <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
+                <div class="col-xs-4    " id="prod-item">
+                    <a ui-sref="productsDescPage" ui-sref-active="active" class="brand">
+
+                        <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
+                    </a>
                     <div class="col-xs-offset-2">
                         <span>{{product.prodName}}</span><br/>
                         <span>Price: {{product.prodPrice | currency}}</span>
-                        <ngcart-addtocart id="item3" name="My Item #3" price="25.75" quantity="3" quantity-max="10">Add to Cart</ngcart-addtocart>
                     </div>
+                    <ngcart-addtocart id="item3" name="My Item #3" price="25.75" quantity="3" quantity-max="10">
+                        Add
+                        to Cart
+                    </ngcart-addtocart>
                 </div>
             </div>
         </div>
+
     </div>
+    <div ng-if="results.length == 0">
+        <h4>No Products Found</h4>
+    </div>
+</div>
 </div>

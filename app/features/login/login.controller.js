@@ -34,7 +34,6 @@
 
     function loginwithfb() {
       $facebook.login().then(function() {
-        console.log("hello chetan");
         refresh();
       });
     }

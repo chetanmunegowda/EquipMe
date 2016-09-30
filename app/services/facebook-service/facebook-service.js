@@ -6,7 +6,6 @@
   function facebookService($q) {
     return {
       getMyLastName: function() {
-        console.log("hello fb");
         var deferred = $q.defer();
         FB.api('/me', {
         }, function(response) {
