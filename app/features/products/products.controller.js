@@ -4,19 +4,17 @@
     angular
         .module('equipMe.products')
         .controller('productsController', productsController)
-        .filter('category', productCategorFilter);
+        .filter('category', productCategoryFilter);
 
 
-    function productsController(productService, $filter, ngCart) {
+    function productsController(prodData, ngCart) {
         var vm = this;
 
-        productService.getAllProducts()
-            .then(function success(response) {
-                vm.products = response;
-                vm.productCategory = UniqueArraybyId(response, "prodCategory");
-            }, function error(error) {
-                console.log(error);
-            });
+        vm.products = prodData;
+        vm.productCategory = UniqueArraybyId(vm.products, "prodCategory");
+
+        ngCart.setTaxRate(1);
+        ngCart.setShipping(0);
 
         function UniqueArraybyId(collection, keyname) {
             var output = [],
@@ -30,10 +28,10 @@
                 }
             });
             return output;
-        };
+        }
     }
 
-    function productCategorFilter () {
+    function productCategoryFilter () {
         return function (input, categories) {
             if (!categories || categories.length === 0) return input;
             var out = [];

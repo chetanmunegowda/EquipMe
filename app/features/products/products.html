@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-9 col-xs-offset-3">
             <div class="input-group">
                 <input type="text" class="form-control" id="productname" ng-model="productsVm.productname"
                        placeholder="Enter product name you want to search" ng-model-options="{debounce: 500}">
@@ -9,11 +9,6 @@
                  </span>
             </div>
         </div>
-    </div>
-    <br/>
-    <div class="col-xs-offset-8 col-xs-4">
-        <h3>Summary <span>(ngcart-summary)</span></h3>
-        <ngcart-summary></ngcart-summary>
     </div>
     <br/>
     <div class="row">
@@ -41,25 +36,21 @@
             <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice | filter:productsVm.productname as results">
                 <div class="clearfix" ng-if="$index % 3 == 0"></div>
                 <div class="col-xs-4    " id="prod-item">
-                    <a ui-sref="productsDescPage" ui-sref-active="active" class="brand">
-
+                    <a ui-sref="prodDetailPage({id: product.prodId})" ui-sref-active="active" class="brand">
                         <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
                     </a>
                     <div class="col-xs-offset-2">
                         <span>{{product.prodName}}</span><br/>
                         <span>Price: {{product.prodPrice | currency}}</span>
                     </div>
-                    <ngcart-addtocart id="item3" name="My Item #3" price="25.75" quantity="3" quantity-max="10">
-                        Add
-                        to Cart
+                    <ngcart-addtocart template-url="bower_components/ngCart/template/ngCart/addtocart.html" id="{{ product.prodId }}" name="{{ product.prodName }}" price="{{ product.prodPrice }}" quantity="1" quantity-max="{{ product.prodMaxQuantity }}">
+                            Add to Cart
                     </ngcart-addtocart>
                 </div>
             </div>
+            <div ng-if="results.length == 0">
+                <h4>No Products Found</h4>
+            </div>
         </div>
-
     </div>
-    <div ng-if="results.length == 0">
-        <h4>No Products Found</h4>
-    </div>
-</div>
 </div>

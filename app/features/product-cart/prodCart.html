@@ -1,0 +1,27 @@
+<div class="container">
+    <ui-view></ui-view>
+    <div class="row">
+        <div class="col-xs-12">
+            <ngcart-cart template-url='bower_components/ngCart/template/ngCart/cart.html'></ngcart-cart>
+        </div>
+    </div>
+    <div class="row" ng-if="prodCartVm.showFlag">
+        <!--<div class="col-xs-offset-3 col-xs-3">
+            <ngcart-checkout service="http" settings="prodCartVm.checkout">CheckOut</ngcart-checkout>
+        </div>-->
+        <div class="col-xs-offset-10  col-xs-2">
+            <button class="btn btn-primary" type="submit" ng-click="prodCartVm.checkout()">Checkout</button>
+            <!--<ngcart-checkout service="paypal" settings="prodCartVm.paypalSettings">C</ngcart-checkout>-->
+        </div>
+    </div><br>
+    <div class="row" ng-if="prodCartVm.showFlag">
+        <div class="col-xs-offset-10  col-xs-2">
+            <button class="btn btn-primary" type="submit" ng-click="prodCartVm.continueShopping()">Continue Shopping</button>
+        </div>
+    </div>
+    <div class="row" ng-if="!prodCartVm.showFlag">
+        <div class="col-xs-offset-10  col-xs-2">
+            <ngcart-checkout service="http">Confirm Order</ngcart-checkout>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,22 @@
 <!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header" >
-  <a class="navbar-brand" ui-sref="loginPage" class="branc">Equip Me</a>
+<div class="navbar-header">
+  <a class="navbar-brand" ui-sref="loginPage">Equip Me</a>
 </div>
+<ul class="nav navbar-nav navbar-right font-color">
+    <li>
+        <a ui-sref="registerPage">Sign Up</a>
+    </li>
+    <li class="cursor-pointer" ui-sref="prodCartPage">
+        <ngcart-summary template-url="bower_components/ngCart/template/ngCart/summary.html"></ngcart-summary>
+    </li>
+    <!--<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </li>-->
+</ul>

@@ -5,11 +5,13 @@
         .module('equipMe', [
             'ui.router',
             'ui.bootstrap',
+            'equipMe.home',
             'equipMe.login',
             'equipMe.register',
             'equipMe.products',
             'equipMe.services',
-            'equipMe.productsDesc',
+            'equipMe.prodDetail',
+            'equipMe.prodCart',
 
             //Third Party Directives
             'ngCart',
@@ -21,33 +23,12 @@
             'equipMe.backButton'
         ])
         .config(moduleConfig)
-        .run(function ($rootScope) {
-            // Load the facebook SDK asynchronously
-            (function () {
-                // If we've already installed the SDK, we're done
-                if (document.getElementById('facebook-jssdk')) {
-                    return;
-                }
-
-                // Get the first script element, which we'll use to find the parent node
-                var firstScriptElement = document.getElementsByTagName('script')[0];
-
-                // Create a new script element and set its id
-                var facebookJS = document.createElement('script');
-                facebookJS.id = 'facebook-jssdk';
-
-                // Set the new script's source to the source of the Facebook JS SDK
-                facebookJS.src = '//connect.facebook.net/en_US/all.js';
-
-                // Insert the Facebook JS SDK into the DOM
-                firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-            }());
-        });
+        .run(runMethod);
 
 
     function moduleConfig($facebookProvider, $urlRouterProvider, $stateProvider, $locationProvider, NotificationProvider) {
         $locationProvider.hashPrefix();
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('equipMe', {
                 url: '',
@@ -66,4 +47,28 @@
         });
         $facebookProvider.setAppId('1198508096838563');
     }
+
+    function runMethod() {
+        // Load the facebook SDK asynchronously
+        (function () {
+            // If we've already installed the SDK, we're done
+            if (document.getElementById('facebook-jssdk')) {
+                return;
+            }
+
+            // Get the first script element, which we'll use to find the parent node
+            var firstScriptElement = document.getElementsByTagName('script')[0];
+
+            // Create a new script element and set its id
+            var facebookJS = document.createElement('script');
+            facebookJS.id = 'facebook-jssdk';
+
+            // Set the new script's source to the source of the Facebook JS SDK
+            facebookJS.src = '//connect.facebook.net/en_US/all.js';
+
+            // Insert the Facebook JS SDK into the DOM
+            firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+        }());
+    }
+
 }(angular));
