@@ -1,42 +1,44 @@
 (function (angular) {
-  'use strict';
+    'use strict';
 
-  angular
-  .module('equipMe.login')
-  .controller('loginController', loginController);
+    angular
+        .module('equipMe.login')
+        .controller('loginController', loginController);
 
-  function loginController($state, $facebook, Notification) {
-    var vm = this;
-    vm.login = login;
-    vm.loginwithfb = loginwithfb;
+    function loginController($state, $facebook, Notification) {
+        var vm = this;
+        vm.logintoapp = logintoapp;
+        vm.login = login;
 
-    function login() {
-      console.log("hello chetan!");
-      if(vm.username === 'user' && vm.password === 'user') {
-          $state.go('productsPage');
-      }
-      else {
-          console.log("Error");
-          Notification.error({message: "Enter correct login details"});
-      }
-    }
+        function logintoapp() {
+            console.log("hello chetan!");
+            if (vm.username === 'user' && vm.password === 'user') {
+                $state.go('productsPage');
+            }
+            else {
+                console.log("Error");
+                Notification.error({message: "Enter correct login details"});
+            }
+        }
 
-    function refresh() {
-      $facebook.api("/me").then(function(response) {
-        console.log(response);
-      },
-      function(err) {
-        console.log(err);
-      });
-    }
+        vm.isLoggedIn = false;
+        function login() {
+            $facebook.login().then(function () {
+                refresh();
+            });
+        }
 
-    refresh();
+        function refresh() {
+            $facebook.api("/me").then(
+                function (response) {
+                    vm.welcomeMsg = "Welcome " + response.name;
+                    vm.isLoggedIn = true;
+                },
+                function (err) {
+                    vm.welcomeMsg = "Please log in";
+                });
+        }
 
-    function loginwithfb() {
-      $facebook.login().then(function() {
         refresh();
-      });
     }
-
-  }
 }(angular));

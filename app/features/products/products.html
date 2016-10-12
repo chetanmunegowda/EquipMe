@@ -1,55 +1,59 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-9 col-xs-offset-3">
-            <div class="input-group">
-                <input type="text" class="form-control" id="productname" ng-model="productsVm.productname"
+        <div id="custom-search-input">
+            <div class="input-group col-xs-offset-2 col-xs-10">
+                <input type="text" class="search-query form-control" id="productname" ng-model="productsVm.productname" 
                        placeholder="Enter product name you want to search" ng-model-options="{debounce: 500}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
-                 </span>
+                    <button class="btn btn-primary" type="button">
+                        <span class=" glyphicon glyphicon-search">
+                        </span>
+                     </button>
+                </span>
             </div>
         </div>
     </div>
-    <br/>
+    <br>
     <div class="row">
-        <div class="col-xs-3" id="prod-category">
-            <div class="row borderline">
-                <strong>Category</strong><br/>
-                <span ng-repeat="category in productsVm.productCategory">
-                         <label><input type="checkbox" ng-model="category.on"/>&nbsp;&nbsp;&nbsp;{{category.prodCategory}}</label><br/>
-                    </span>
-            </div>
-            <br/>
-            <div class="row">
-                <strong>Price</strong> <br/>
-                <label>
-                    <input type="radio" ng-model="productsVm.prodPrice" value="prodPrice">
-                    Low To High
-                </label><br/>
-                <label>
-                    <input type="radio" ng-model="productsVm.prodPrice" value="-prodPrice">
-                    High To Low
-                </label><br/>
-            </div>
-        </div>
-        <div class="col-xs-9">
-            <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice | filter:productsVm.productname as results">
-                <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                <div class="col-xs-4    " id="prod-item">
-                    <a ui-sref="prodDetailPage({id: product.prodId})" ui-sref-active="active" class="brand">
-                        <img ng-src="{{product.prodImage}}" alt="" class="product-img"><br/>
-                    </a>
-                    <div class="col-xs-offset-2">
-                        <span>{{product.prodName}}</span><br/>
-                        <span>Price: {{product.prodPrice | currency}}</span>
-                    </div>
-                    <ngcart-addtocart template-url="bower_components/ngCart/template/ngCart/addtocart.html" id="{{ product.prodId }}" name="{{ product.prodName }}" price="{{ product.prodPrice }}" quantity="1" quantity-max="{{ product.prodMaxQuantity }}">
-                            Add to Cart
-                    </ngcart-addtocart>
+        <div class="col-xs-2">
+            <div class="category-filter-tile">
+                <strong>Category</strong>
+                <div ng-repeat="category in productsVm.productCategory" class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="category.on"> {{category.prodCategory}}
+                    </label>
                 </div>
             </div>
-            <div ng-if="results.length == 0">
-                <h4>No Products Found</h4>
+            <div class="price-filter-tile">
+                <strong>Price</strong>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="productsVm.prodPrice" value="prodPrice"> 
+                        Low To High 
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="productsVm.prodPrice" value="-prodPrice"> 
+                        High To Low 
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+                <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice | filter:productsVm.productname as results">
+                    <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
+                        <a ui-sref="prodDetailPage({id: product.prodId})" ui-sref-active="active" class="brand">
+                            <div class="product-tile">
+                                <img width="250" height="200"
+                                     ng-src="{{product.prodImage}}"
+                                     alt="{{}}">
+                                <span>{{product.prodName}}-{{product.prodPrice | currency}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

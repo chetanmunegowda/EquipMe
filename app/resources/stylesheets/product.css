@@ -1,7 +1,7 @@
 .product-img {
     margin-left: 10%;
-    max-width:75%;
-    max-height:75%;
+    max-width: 75%;
+    max-height: 75%;
 }
 
 #prod-item {
@@ -20,4 +20,47 @@
 
 #prod-category strong {
     font-size: 1.5em;
+}
+
+.category-filter-tile {
+    position: relative;
+    border-bottom: 2px solid #ddd;
+    overflow: hidden;
+    padding-right: 10px;
+    width: 150px;
+    height: 200px;
+}
+
+.price-filter-tile {
+    position: relative;
+    border-bottom: 2px solid #ddd;
+    margin-top: 20px;
+    overflow: hidden;
+    padding-right: 10px;
+    width: 150px;
+    height: 200px;
+}
+
+.product-tile {
+    position: relative;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    width: 250px;
+    height: 200px;
+    margin: 0 auto 15px;
+}
+.product-tile span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}
+.product-tile:hover {
+    box-shadow: 0 1px 5px 1px #cccccc;
 }

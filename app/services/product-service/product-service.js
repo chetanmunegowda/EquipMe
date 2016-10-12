@@ -41,14 +41,14 @@
 
             deferred.resolve([{
                 prodId: 1,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
+                prodImage: "../../resources/images/DuoDERM CGF Control Gel Formula Dressing-XaPtW0.png",
                 prodName: "Product Name 1",
                 prodCategory: "Category A",
                 prodPrice: 34,
                 prodMaxQuantity: 20
             }, {
                 prodId: 2,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
+                prodImage: "../../resources/images/Deluxe+Flexible+Sock+Aid_L-Vij1FL.png",
                 prodName: "Product Name 2",
                 prodCategory: "Category A",
                 prodPrice: 89,
@@ -72,7 +72,8 @@
                 prodImage: "../../resources/images/Rollator_65650_R.png",
                 prodName: "Product Name 5",
                 prodCategory: "Category D",
-                prodPrice: 70
+                prodPrice: 70,
+                prodMaxQuantity: 20
             }, {
                 prodId: 6,
                 prodImage: "../../resources/images/Wheelchair-Drink-Holder-For-U-Go-Esteem-Wheelchairs-large.jpg",
@@ -82,7 +83,7 @@
                 prodMaxQuantity: 20
             }, {
                 prodId: 7,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
+                prodImage: "../../resources/images/FrogLegs-Colors_lg-01.jpg",
                 prodName: "Product Name 7",
                 prodCategory: "Category D",
                 prodPrice: 90
@@ -95,30 +96,72 @@
                 prodMaxQuantity: 20
             }, {
                 prodId: 9,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
-                prodName: "Product Name 8",
+                prodImage: "../../resources/images/HA-RD702_1.jpg",
+                prodName: "Product Name 9",
                 prodCategory: "Category B",
                 prodPrice: 23,
                 prodMaxQuantity: 20
             }, {
                 prodId: 10,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
-                prodName: "Product Name 9",
+                prodImage: "../../resources/images/JAY-J3-CF-B.jpg",
+                prodName: "Product Name 10",
                 prodCategory: "Category C",
                 prodPrice: 45,
                 prodMaxQuantity: 20
             }, {
                 prodId: 11,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
-                prodName: "Product Name 10",
+                prodImage: "../../resources/images/IN-5180.jpg",
+                prodName: "Product Name 11",
                 prodCategory: "Category D",
                 prodPrice: 67,
                 prodMaxQuantity: 20
             }, {
                 prodId: 12,
-                prodImage: "../../resources/images/418uG7pOFnL.jpg",
-                prodName: "Product Name 11",
+                prodImage: "../../resources/images/Deluxe+Flexible+Sock+Aid_L-Vij1FL.png",
+                prodName: "Product Name 12",
                 prodCategory: "Category D",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 13,
+                prodImage: "../../resources/images/hard-gray-annodized-indent-handrim-24-540mm-25-559mm-26-590mm.jpg",
+                prodName: "Product Name 13",
+                prodCategory: "Category D",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 14,
+                prodImage: "../../resources/images/image514.jpg",
+                prodName: "Product Name 14",
+                prodCategory: "Category A",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 15,
+                prodImage: "../../resources/images/Deluxe+Flexible+Sock+Aid_L-Vij1FL.png",
+                prodName: "Product Name 15",
+                prodCategory: "Category D",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 16,
+                prodImage: "../../resources/images/phone-holder (1).jpg",
+                prodName: "Product Name 16",
+                prodCategory: "Category C",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 17,
+                prodImage: "../../resources/images/e-open-angled-paddle-handle-pair.jpg",
+                prodName: "Product Name 17",
+                prodCategory: "Category D",
+                prodPrice: 87,
+                prodMaxQuantity: 20
+            }, {
+                prodId: 18,
+                prodImage: "../../resources/images/Wheelchair Transfer Boards - 8 x 24 - 2 Hand Holes-b7tXOC.png",
+                prodName: "Product Name 18",
+                prodCategory: "Category B",
                 prodPrice: 87,
                 prodMaxQuantity: 20
             }]);
@@ -132,7 +175,7 @@
                 method: "delete",
                 url: "something",
                 params: {
-                    action:"delete"
+                    action: "delete"
                 },
                 data: {
                     id: productId

@@ -1,8 +1,31 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-           <h1>Home Page In Progress</h1>
-            <a ui-sref="loginPage" ui-sref-active="">Login Page</a>
+        <div class="col-xs-12">
+            <div style="height: 350px">
+                <carousel active="active" interval="homeVm.myInterval">
+                    <slide ng-repeat="slide in homeVm.slides" active="slide.active">
+                        <img style="margin:auto; width: 100%; height: 350px" ng-src="{{slide.image}}">
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+    </div><br/>
+    <div id="home-tiles" class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <a ui-sref="productsPage"><div id="general-tile"><span>Most Sold Products</span></div></a>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <a ui-sref="productsPage">
+                <div id="specials-tile"><span>Recommended Products</span></div>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <a href="https://www.google.com/maps/place/1871/@41.888369,-87.6375527,17z/data=!3m1!4b1!4m5!3m4!1s0x880e2cb6fb22d371:0x40547b2a8f2c295!8m2!3d41.888369!4d-87.635364" target="_blank">
+                <div id="map-tile">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.2278594894424!2d-87.63743218481277!3d41.88795647922144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cb6e49b1ff7%3A0xbcc110b28e696549!2sW+Merchandise+Mart+Plaza%2C+Chicago%2C+IL+60654!5e0!3m2!1sen!2sus!4v1476245633817" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <span>map</span>
+                </div>
+            </a>
         </div>
     </div>
 </div>

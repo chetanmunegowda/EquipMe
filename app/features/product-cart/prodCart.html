@@ -1,8 +1,7 @@
 <div class="container">
-    <ui-view></ui-view>
     <div class="row">
         <div class="col-xs-12">
-            <ngcart-cart template-url='bower_components/ngCart/template/ngCart/cart.html'></ngcart-cart>
+            <ngcart-cart cross-mark template-url='bower_components/ngCart/template/ngCart/cart.html'></ngcart-cart>
         </div>
     </div>
     <div class="row" ng-if="prodCartVm.showFlag">
@@ -19,9 +18,5 @@
             <button class="btn btn-primary" type="submit" ng-click="prodCartVm.continueShopping()">Continue Shopping</button>
         </div>
     </div>
-    <div class="row" ng-if="!prodCartVm.showFlag">
-        <div class="col-xs-offset-10  col-xs-2">
-            <ngcart-checkout service="http">Confirm Order</ngcart-checkout>
-        </div>
-    </div>
+    <ui-view></ui-view>
 </div>

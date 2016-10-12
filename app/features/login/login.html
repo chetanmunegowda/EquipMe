@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h2 class="login-header">Login</h2>
-            <form class="loginform" name="form" ng-submit="loginVm.login()" role="form">
+            <form class="loginform" name="form" ng-submit="loginVm.logintoapp()" role="form">
                 <div class="form-group"
                      ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
                     <label for="username">Username</label>
@@ -23,7 +23,7 @@
                 </div>
             </form>
             <br/>
-            <button type="submit" class="btn btn-primary" ng-click="loginVm.loginwithfb()">Login With FB</button>
+            <button type="submit" class="btn btn-primary" ng-click="loginVm.login()">Login With FB</button>
             <div id="fb-root">
             </div>
         </div>

@@ -1,0 +1,53 @@
+.imagecontainer {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    min-height: 100%;
+    display: block;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    min-width: 100%;
+}
+
+#general-tile, #specials-tile, #map-tile {
+    height: 250px;
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    border: 1px solid #1b6d85;
+    overflow: hidden;
+}
+
+#general-tile:hover, #specials-tile:hover, #map-tile:hover {
+    box-shadow: 0 1px 5px 1px #cccccc;
+}
+
+#general-tile {
+    background: url('../../resources/images/ACTIVEAID JTG 600 Series Folding Shower Commode Chair-dIRve4.png') no-repeat;
+    background-position: center;
+}
+
+#specials-tile {
+    background: url('../../resources/images/e-open-angled-paddle-handle-pair.jpg') no-repeat;
+    background-position: center;
+}
+
+#general-tile span, #specials-tile span, #map-tile span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}

@@ -45,10 +45,17 @@
             positionX: 'center',
             positionY: 'top'
         });
+
         $facebookProvider.setAppId('1198508096838563');
+        $facebookProvider.setCustomInit({
+            channelUrl : 'http://localhost:8000/#/',
+            xfbml      : true
+        });
+        $facebookProvider.setVersion("v2.7");
+
     }
 
-    function runMethod() {
+    function runMethod($rootScope) {
         // Load the facebook SDK asynchronously
         (function () {
             // If we've already installed the SDK, we're done
