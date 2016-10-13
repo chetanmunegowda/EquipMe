@@ -64,3 +64,21 @@
 .product-tile:hover {
     box-shadow: 0 1px 5px 1px #cccccc;
 }
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+    /* Home page */
+    #general-tile, #specials-tile {
+        width: 280px;
+        margin: 0 auto 15px;
+    }
+
+    .col-xxs-12 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        float: left;
+        width: 100%;
+    }
+}

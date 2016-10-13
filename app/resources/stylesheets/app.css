@@ -1,17 +1,21 @@
 body {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     color: #0f0f0f;
 }
 
 #equipme-header {
     border-radius: 0;
-    background-color: #1b6d85;
+    background-color: #1C86EE;
     border-color: #1b6d85;
 }
 
 .clear {
     clear: both;
     height: 4em;
+}
+
+body {
+    font-family: 'Oxygen', sans-serif;
 }
 
 .footer {
@@ -21,7 +25,7 @@ body {
     width: 100%;
     padding-top: 0.75em;
     height: 3em;
-    background-color: #1b6d85;
+    background-color: #104E8B;
     color: #0f0f0f;
 }
 
