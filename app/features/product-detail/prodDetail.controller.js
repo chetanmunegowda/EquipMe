@@ -1,6 +1,3 @@
-/**
- * Created by chetanmunegowda on 10/13/16.
- */
 (function (angular) {
     'use strict';
 
@@ -10,16 +7,20 @@
 
     function prodDetailController(prodDetail) {
         var vm = this;
-        console.log(prodDetail);
-        if(prodDetail) {
-            vm.prodDetailData = prodDetail;
-        }
+
+        vm.prodDetailData = prodDetail[0];
+
+        console.log("Data", vm.prodDetailData);
+
+        var productId = vm.prodDetailData.productId;
+
+        vm.reviews = [];
 
         vm.review = {};
 
         vm.addReview = function() {
-            vm.prodDetailData.reviews.push(vm.review);
-
+            vm.review.productId = productId;
+            vm.reviews.push(vm.review);
             vm.review = {};
         };
     }

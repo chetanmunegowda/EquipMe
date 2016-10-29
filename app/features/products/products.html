@@ -20,7 +20,7 @@
                 <strong>Category</strong>
                 <div ng-repeat="category in productsVm.productCategory" class="checkbox">
                     <label>
-                        <input type="checkbox" ng-model="category.on"> {{category.prodCategory}}
+                        <input type="checkbox" ng-model="category.on"> {{category.productCategory}}
                     </label>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                 <strong>Price</strong>
                 <div class="radio">
                     <label>
-                        <input type="radio" ng-model="productsVm.prodPrice" value="prodPrice"> 
+                        <input type="radio" ng-model="productsVm.productPrice" value="productPrice"> 
                         Low To High 
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" ng-model="productsVm.prodPrice" value="-prodPrice"> 
+                        <input type="radio" ng-model="productsVm.productPrice" value="-productPrice"> 
                         High To Low 
                     </label>
                 </div>
@@ -42,18 +42,21 @@
         </div>
         <div class="col-xs-10">
             <div class="row">
-                <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.prodPrice | filter:productsVm.productname as results">
+                <div ng-repeat="product in productsVm.products | filter:productsVm.productname:strict | category:(productsVm.productCategory|filter:{on:true}) | orderBy: productsVm.productPrice | filter:productsVm.productname as results">
                     <div class="col-md-4 col-sm-6 col-xs-6 col-xxs-12">
-                        <a ui-sref="prodDetailPage({id: product.prodId})" ui-sref-active="active" class="brand">
+                        <a ui-sref="prodDetailPage({id: product.productId})" ui-sref-active="active" class="brand">
                             <div class="product-tile">
                                 <img width="250" height="200"
-                                     ng-src="{{product.prodImage}}"
-                                     alt="{{}}">
-                                <span>{{product.prodName}} - {{product.prodPrice | currency}}</span>
+                                     ng-src="{{product.productImageUrl}}"
+                                     alt="{{product.productName}}">
+                                <span>{{product.productName}} - {{product.productPrice | currency}}</span>
                             </div>
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="row" ng-if="results.length == 0"> 
+                <h2>No Products Found</h2> 
             </div>
         </div>
     </div>

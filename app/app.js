@@ -12,6 +12,7 @@
             'equipMe.services',
             'equipMe.prodDetail',
             'equipMe.prodCart',
+            'equipMe.addProduct',
 
             //Third Party Directives
             'ngCart',
@@ -19,15 +20,17 @@
             'ui-notification',
 
             //directives
-            'equipMe.pwCheck',
-            'equipMe.backButton'
+            'equipMe.backButton',
+            'equipMe.loading'
         ])
         .config(moduleConfig)
         .run(runMethod);
 
 
-    function moduleConfig($facebookProvider, $urlRouterProvider, $stateProvider, $locationProvider, NotificationProvider) {
+    function moduleConfig($facebookProvider, $urlRouterProvider, $stateProvider, $locationProvider, NotificationProvider, $httpProvider) {
         $locationProvider.hashPrefix();
+        $httpProvider.interceptors.push('loadingHttpInterceptor');
+        $httpProvider.interceptors.push('AuthInterceptor');
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('equipMe', {

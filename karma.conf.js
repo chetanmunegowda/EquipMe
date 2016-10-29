@@ -11,7 +11,10 @@ module.exports = function (config) {
             'app.js',
             'features/home/home.js',
             'features/home/home.controller.js',
-            'features/home/home_test.js'
+            'features/home/home_test.js',
+            'services/equipme-service.js',
+            'services/product-service/product-service.js',
+            'services/product-service/product-service.test.js'
         ],
 
         autoWatch: true,

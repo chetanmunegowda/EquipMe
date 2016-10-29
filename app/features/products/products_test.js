@@ -1,16 +1,34 @@
 'use strict';
 
-describe('equipMe.products', function() {
+describe('Product Controller', function () {
 
-  beforeEach(module('equipMe.products'));
+  'use strict';
 
-  describe('products controller', function(){
+  var productController;
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var productsCtrl = $controller('productsController');
-      expect(registerCtrl).toBeDefined();
-    }));
+  /**
+   * Gets called before each unit test it()
+   */
+  beforeEach(function() {
 
+    module('ui.router')
+    module('equipMe.home');
+
+    // Load any dependencies
+    inject(function ($injector) {
+      var $controller = $injector.get('$controller');
+
+      // Instantiate controller
+      homeController = $controller('homeController', {
+      });
+    });
   });
+
+  it('should initialize with default values', function() {
+    expect(homeController).toBeDefined();
+    expect(homeController.myInterval).toBe(3000);
+    expect(homeController.noWrapSlides).toBe(false);
+    expect(homeController.slides[0].id).toBe(slideData[0].id);
+  });
+
 });

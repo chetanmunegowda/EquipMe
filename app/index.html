@@ -20,11 +20,14 @@
     <link rel="stylesheet" href="resources/stylesheets/app.css">
     <link rel="stylesheet" href="resources/stylesheets/login.css">
     <link rel="stylesheet" href="resources/stylesheets/home.css">
+    <link rel="stylesheet" href="resources/stylesheets/add-product.css">
     <link rel="stylesheet" href="resources/stylesheets/product.css">
     <link rel="stylesheet" href="resources/stylesheets/prod-detail.css">
     <link rel="stylesheet" href="resources/stylesheets/product-cart.css">
 </head>
 <body>
+<!-- Fixed position loading indicator -->
+<loading class="loading-indicator"></loading>
 <nav class="navbar navbar-default" id="equipme-header">
     <div class="container-fluid" ng-include="'resources/templates/equipmeheader.html'">
     </div><!-- /.container-fluid -->
@@ -49,6 +52,8 @@
 <script src="features/login/login.controller.js"></script>
 <script src="features/register/register.js"></script>
 <script src="features/register/register.controller.js"></script>
+<script src="features/add-products/add-product.js"></script>
+<script src="features/add-products/add-product.controller.js"></script>
 <script src="features/products/products.js"></script>
 <script src="features/products/products.controller.js"></script>
 <script src="features/product-detail/prodDetail.js"></script>
@@ -58,9 +63,11 @@
 <script src="features/product-cart/product-cart-checkout/prodCartCheckout.controller.js"></script>
 <script src="components/backButton/backButton.module.js"></script>
 <script src="components/backButton/backButton.directive.js"></script>
-<script src="components/passwordcheck/pwcheck.module.js"></script>
-<script src="components/passwordcheck/pwcheck.directive.js"></script>
+<script src="components/loading/loading.module.js"></script>
+<script src="components/loading/loading.component.js"></script>
 <script src="services/equipme-service.js"></script>
+<script src="services/auth-factory/auth-factory.js"></script>
 <script src="services/product-service/product-service.js"></script>
+<script src="services/loading-factory/loading-factory.js"></script>
 </body>
 </html>

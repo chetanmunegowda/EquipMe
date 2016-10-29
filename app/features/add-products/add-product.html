@@ -1,0 +1,78 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form name='addProductForm' novalidate role="form">
+
+                <div class="form-group">
+                    <label class="control-label" for="prodname">Product Name</label>
+                    <input type="text" id="prodname" name="productname" placeholder="Enter Product Name"
+                           ng-model="addProdVm.product.productName"
+                           class="form-control"
+                           required
+                           minlength="4">
+                    <span ng-if="(addProductForm.productname.$error.minlength || addProductForm.productname.$error.required) && addProductForm.productname.$touched">
+                         product name must be at least 4 characters long
+                   </span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="control-label" for="prodcategory">Product Category</label>
+                    <input type="text" id="prodcategory" name="productcategory" placeholder="Enter Product Category"
+                           ng-model="addProdVm.product.productCategory"
+                           class="form-control"
+                           required>
+                    <span ng-if="addProductForm.productcategory.$error.required && addProductForm.productcategory.$touched">
+                        product category is mandatory
+                    </span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="control-label" for="productskucode">Product Sku Code</label>
+                    <input type="text" id="productskucode" name="productskucode" placeholder="Enter Product Skucode"
+                           ng-model="addProdVm.product.skuCode"
+                           class="form-control"
+                           required>
+                    <span ng-if="addProductForm.productskucode.$error.required && addProductForm.productskucode.$touched">
+                        product skucode is mandatory
+                    </span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="control-label" for="productquantity">Product Quantity</label>
+                    <input type="text" name="productquantity" id="productquantity" placeholder="Enter Product Quantity"
+                           ng-model="addProdVm.product.productQuantity"
+                           class="form-control"
+                           required>
+                    <span ng-if="addProductForm.productquantity.$error.required && addProductForm.productquantity.$touched">
+                            product quantity is mandatory
+                    </span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="control-label" for="producturl">Product Image Url</label>
+                    <input type="text" name="productimageurl" id="producturl" placeholder="Enter Product Image Url"
+                           ng-model="addProdVm.product.productImageUrl"
+                           class="form-control"
+                           required>
+                    <span ng-if="addProductForm.productimageurl.$error.required && addProductForm.productimageurl.$touched">
+                        product image url is mandatory
+                    </span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div>
+                        <button
+                                ng-disabled="addProductForm.$invalid"
+                                class="btn btn-primary"
+                                ng-click="addProdVm.submit()">Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

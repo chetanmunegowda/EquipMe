@@ -2,11 +2,12 @@
     <div class="row prod-description-tile">
         <div class="col-xs-4">
             <img class="img-responsive"
-                 ng-src="{{prodDetailVm.prodDetailData.prodImage}}" alt="" width="300" height="250">
+                 ng-src="{{prodDetailVm.prodDetailData.productImageUrl}}" alt="{{}}"
+                 width="300" height="250">
         </div>
         <div class="col-xs-8">
             <div class="product-item-description">
-                <h3 class="product-item-title">{{prodDetailVm.prodDetailData.prodName}}</h3>
+                <h3 class="product-item-title">{{prodDetailVm.prodDetailData.productName}}</h3>
                 <h5 class="product-item-desc">
                     An an valley indeed so no wonder future nature vanity.
                     Debating all she mistaken indulged believed provided declared.
@@ -23,14 +24,14 @@
                     Disposal to kindness appetite diverted learning of on raptures.
                     Betrayed any may returned now dashwood formerly. Balls way delay shy boy man views.
                     No so instrument discretion unsatiable to in. </h5>
-                <h3 class="product-item-price">{{prodDetailVm.prodDetailData.prodPrice | currency}}</h3>
+                <h3 class="product-item-price">{{prodDetailVm.prodDetailData.productPrice | currency}}</h3>
             </div>
             <div>
                 <ngcart-addtocart template-url="bower_components/ngCart/template/ngCart/addtocart.html"
-                                  id="{{prodDetailVm.prodDetailData.prodId}}"
-                                  name="{{prodDetailVm.prodDetailData.prodName}}"
-                                  price="{{prodDetailVm.prodDetailData.prodPrice}}" quantity="1"
-                                  quantity-max="{{prodDetailVm.prodDetailData.prodMaxQuantity}}">
+                                  id="{{prodDetailVm.prodDetailData.productId}}"
+                                  name="{{prodDetailVm.prodDetailData.productName}}"
+                                  price="{{prodDetailVm.prodDetailData.productPrice}}" quantity="1"
+                                  quantity-max="{{prodDetailVm.prodDetailData.productQuantity}}">
                     Add to Cart
                 </ngcart-addtocart>
             </div>
@@ -41,7 +42,7 @@
         <div class="col-xs-12">
             <h4>Reviews</h4>
             <ul>
-                <li ng-repeat="review in prodDetailVm.prodDetailData.reviews">
+                <li ng-repeat="review in prodDetailVm.reviews">
                     <blockquote>
                         <strong>{{review.stars}} Stars</strong>
                         {{review.body}}

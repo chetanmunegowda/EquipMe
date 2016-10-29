@@ -1,18 +1,40 @@
 'use strict';
 
-describe('equipMe.home', function () {
+describe('Home Controller', function () {
 
-    beforeEach(module('ui.router'));
+    var homeController;
 
-    beforeEach(module('equipMe.home'));
+    var slideData = [
+        {
+            id: 1,
+            image: '../../resources/images/418uG7pOFnL.jpg',
+            active: true
+        }
+    ];
 
-    describe('home controller', function () {
+    /**
+     * Gets called before each unit test it()
+     */
+    beforeEach(function() {
 
-        it('should ....', inject(function ($controller) {
-            //spec body
-            var homeCtrl = $controller('homeController');
-            expect(homeCtrl).toBeDefined();
-        }));
+        module('ui.router');
+        module('equipMe.home');
 
+        // Load any dependencies
+        inject(function ($injector) {
+            var $controller = $injector.get('$controller');
+
+            // Instantiate controller
+            homeController = $controller('homeController', {
+            });
+        });
     });
+
+    it('should initialize with default values', function() {
+        expect(homeController).toBeDefined();
+        expect(homeController.myInterval).toBe(3000);
+        expect(homeController.noWrapSlides).toBe(false);
+        expect(homeController.slides[0].id).toBe(slideData[0].id);
+    });
+
 });

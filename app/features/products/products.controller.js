@@ -10,8 +10,9 @@
     function productsController(prodData, ngCart) {
         var vm = this;
 
+        console.log(prodData);
         vm.products = prodData;
-        vm.productCategory = UniqueArraybyId(vm.products, "prodCategory");
+        vm.productCategory = UniqueArraybyId(vm.products, "productCategory");
 
         ngCart.setTaxRate(1);
         ngCart.setShipping(0);
@@ -24,7 +25,7 @@
                 var key = item[keyname];
                 if (keys.indexOf(key) === -1) {
                     keys.push(key);
-                    output.push({"prodCategory": item[keyname], "on": false});
+                    output.push({"productCategory": item[keyname], "on": false});
                 }
             });
             return output;
@@ -37,7 +38,7 @@
             var out = [];
             angular.forEach(input, function (item) {
                 angular.forEach(categories, function (category) {
-                    if (item.prodCategory === category.prodCategory) {
+                    if (item.productCategory === category.productCategory) {
                         out.push(item);
                     }
                 });
