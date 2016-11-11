@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" ui-sref="homePage">Equip Me</a>
+    <a class="navbar-brand" ui-sref="homePage">LiveEquip'd</a>
 </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right font-color">
@@ -17,11 +17,12 @@
         <li class="dropdown">
             <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                aria-expanded="false">My Account <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a ui-sref="loginPage">Login</a></li>
-                <li><a href="#">Logout</a></li>
-                <li ng-show="isLoggedIn">Logged as {{userInfo}}</a></li>
-                <li ng-show="isLoggedIn"><a ng-href="#/logout"></a>Logout</li>
+            <ul class="dropdown-menu" ng-init="isLogged='true'">
+                <li><a ng-if=isLoggedIn ui-sref="loginPage" href="">Login</a></li>
+                <li><a ng-if=!isLoggedIn ui-sref="loginPage">Logout</a></li>
+                <li><a ng-if=isLoggedIn ui-sref="addProduct" href="">Add Product</a></li>
+                <li><a ng-if=isLoggedIn ui-sref="updateProduct">Delete Product</a></li>
+                <li><a ng-if=isLoggedIn ui-sref="viewsales" href="">View Sales</a></li>
             </ul>
         </li>
     </ul>

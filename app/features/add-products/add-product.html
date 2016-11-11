@@ -16,12 +16,13 @@
                 </div>
                 <br>
 
+
                 <div class="form-group">
                     <label class="control-label" for="prodcategory">Product Category</label>
-                    <input type="text" id="prodcategory" name="productcategory" placeholder="Enter Product Category"
-                           ng-model="addProdVm.product.productCategory"
-                           class="form-control"
-                           required>
+                    <select class="form-control" name="productcategory"
+                            ng-model="addProdVm.product.productCategory" id="prodcategory" required>
+                        <option ng-repeat="category in addProdVm.prodCategory" value="{{category}}">{{category}}</option>
+                    </select>
                     <span ng-if="addProductForm.productcategory.$error.required && addProductForm.productcategory.$touched">
                         product category is mandatory
                     </span>
@@ -48,6 +49,18 @@
                            required>
                     <span ng-if="addProductForm.productquantity.$error.required && addProductForm.productquantity.$touched">
                             product quantity is mandatory
+                    </span>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="control-label" for="productPrice">Product Price</label>
+                    <input type="text" name="productPrice" id="productPrice" placeholder="Enter Product Price"
+                           ng-model="addProdVm.product.productPrice"
+                           class="form-control"
+                           required>
+                    <span ng-if="addProductForm.productPrice.$error.required && addProductForm.productPrice.$touched">
+                            product price is mandatory
                     </span>
                 </div>
                 <br>

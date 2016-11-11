@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="form-group">
+                <label class="control-label" for="chart">Select Chart</label>
+                <select ng-model="viewSalesVm.selected" id="chart">
+                    <option ng-repeat="chart in viewSalesVm.chartType" value="{{chart}}">{{chart}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div ng-if="viewSalesVm.selected=='ProdChart'">
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+                <highchart id="chart1" config="viewSalesVm.prodChartConfig"></highchart>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="viewSalesVm.selected=='SalesChart'">
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+                <highchart id="chart2" config="viewSalesVm.salesChartConfig"></highchart>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="viewSalesVm.selected=='AuditChart'">
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+                <highchart id="chart3" config="viewSalesVm.auditChartConfig"></highchart>
+            </div>
+        </div>
+    </div>
+</div>

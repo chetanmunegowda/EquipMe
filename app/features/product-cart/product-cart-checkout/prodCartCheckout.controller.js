@@ -14,14 +14,17 @@
         var order = {};
         vm.shipment = {};
 
-        vm.payPalSettings = {
-            business: 'dan@snapjay.com',
-            item_number: '1234',
-            currency_code: 'USD'
+        vm.settings = {
+            paypal: {
+                business: 'cmunegow@hawk.iit.edu',
+                item_number: '1234',
+                currency_code: 'USD'
+            }
         };
 
         vm.confirmOrder = function () {
             var cart = ngCart.getCart();
+            console.log("Cart Details" +cart);
             order.cart = cart;
             order.shipment = vm.shipment;
             vm.showPayPal = true;

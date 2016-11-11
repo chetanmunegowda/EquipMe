@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Equip Me</title>
+    <title>LiveEquipd</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
@@ -40,10 +40,14 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="bower_components/ng-facebook/ngFacebook.js"></script>
 <script src="bower_components/ngCart/dist/ngCart.js"></script>
 <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.js"></script>
+<script src="http://code.highcharts.com/stock/highstock.src.js"></script>
+<script src="bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
 <script src="app.js"></script>
 
 <script src="features/home/home.js"></script>
@@ -54,6 +58,8 @@
 <script src="features/register/register.controller.js"></script>
 <script src="features/add-products/add-product.js"></script>
 <script src="features/add-products/add-product.controller.js"></script>
+<script src="features/update-products/update-product.js"></script>
+<script src="features/update-products/update-product.controller.js"></script>
 <script src="features/products/products.js"></script>
 <script src="features/products/products.controller.js"></script>
 <script src="features/product-detail/prodDetail.js"></script>
@@ -61,6 +67,8 @@
 <script src="features/product-cart/prodCart.js"></script>
 <script src="features/product-cart/prodCart.controller.js"></script>
 <script src="features/product-cart/product-cart-checkout/prodCartCheckout.controller.js"></script>
+<script src="features/view-sales/view-sales.js"></script>
+<script src="features/view-sales/view-sales.controller.js"></script>
 <script src="components/backButton/backButton.module.js"></script>
 <script src="components/backButton/backButton.directive.js"></script>
 <script src="components/loading/loading.module.js"></script>
@@ -69,5 +77,8 @@
 <script src="services/auth-factory/auth-factory.js"></script>
 <script src="services/product-service/product-service.js"></script>
 <script src="services/loading-factory/loading-factory.js"></script>
+<script src="services/auth-service/authentication.service.js"></script>
+<script src="services/flash-service/flash.service.js"></script>
+<script src="services/user-service/user.service.local-storage.js"></script>
 </body>
 </html>

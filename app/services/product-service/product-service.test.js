@@ -40,7 +40,7 @@ describe('product service', function() {
 
     it('should retrieve all products', function() {
         $httpBackend.expectGET('http://localhost:8080/equipme-rest/api/products').respond(testData.product);
-        productService.getAllProducts(null).then(function(prodData) {
+        productService.getAllProducts().then(function(prodData) {
             expect(prodData).toEqual(testData.product);
         });
         $httpBackend.flush();

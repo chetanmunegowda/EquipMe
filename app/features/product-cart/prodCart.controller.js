@@ -8,11 +8,6 @@
     function prodCartController($state) {
         var vm = this;
         vm.showFlag = true;
-
-        vm.paypalSettings = {
-            'business':'',
-            'currency_code': 'USD'
-        };
         
         vm.checkout = function () {
             $state.go('prodCartPage.checkoutPage');

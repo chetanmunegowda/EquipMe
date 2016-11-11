@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form ng-if="!updateProdVm.updateProductForm" name='searchProductForm' novalidate role="form">
+                <div class="form-group">
+                    <label class="control-label" for="prodcategory">Product Category</label>
+                    <select class="form-control" name="productcategory"
+                            ng-model="updateProdVm.product.productCategory" id="prodcategory" required>
+                        <option ng-repeat="category in updateProdVm.productCategory" value="{{category}}">{{category}}</option>
+                    </select>
+                    <span ng-if="searchProductForm.productcategory.$error.required && searchProductForm.productcategory.$touched">
+                        product category is mandatory
+                    </span>
+                </div>
+                <div ng-if="searchProductForm.productcategory.$touched">
+                    <div class="form-group">
+                        <label class="control-label" for="productname">Product Name</label>
+                        <select class="form-control" name="productname"
+                                ng-model="updateProdVm.product.productname" id="productname" required>
+                            <option ng-repeat="product in updateProdVm.products | filter:updateProdVm.product.productCategory" value="{{product.productName}}">{{product.productName}}</option>
+                        </select>
+                        <span ng-if="searchProductForm.productcategory.$error.required && searchProductForm.productcategory.$touched">
+                                 product name is mandatory
+                         </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button
+                                ng-disabled="searchProductForm.$invalid"
+                                class="btn btn-primary"
+                                ng-click="updateProdVm.getProduct()">Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div ng-if="updateProdVm.updateProductForm && !updateProdVm.filterProduct">
+                No Products Found
+            </div>
+            <form ng-if="updateProdVm.updateProductForm && updateProdVm.filterProduct" name='updateProductForm' novalidate role="form">
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <img class="img-responsive"
+                             ng-src="{{updateProdVm.filterProduct.productImageUrl}}" alt="{{}}"
+                             width="300" height="250">
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="product-item-description">
+                            <h3 class="product-item-title">{{updateProdVm.filterProduct.productName}}</h3>
+                            <h5 class="product-item-desc">
+                                An an valley indeed so no wonder future nature vanity.
+                                Debating all she mistaken indulged believed provided declared.
+                                He many kept on draw lain song as same.
+                                Whether at dearest certain spirits is entered in to.
+                                Rich fine bred real use too many good.
+                                She compliment unaffected expression favourable any.
+                                Unknown chiefly showing to conduct no.
+                                Hung as love evil able to post at as.
+                                Remain lively hardly needed at do by.
+                                Two you fat downs fanny three. True mr gone most at. Dare as name just when with it body.
+                                Travelling inquietude she increasing off impossible the.
+                                Cottage be noisier looking to we promise on.
+                                Disposal to kindness appetite diverted learning of on raptures.
+                                Betrayed any may returned now dashwood formerly. Balls way delay shy boy man views.
+                                No so instrument discretion unsatiable to in. </h5>
+                            <h3 class="product-item-price">{{updateProdVm.filterProduct.productPrice | currency}}</h3>
+                        </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button
+                                ng-disabled="searchProductForm.$invalid"
+                                class="btn btn-primary"
+                                ng-click="updateProdVm.deleteProduct(updateProdVm.filterProduct.productId)">Delete
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

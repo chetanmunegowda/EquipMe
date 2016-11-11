@@ -17,6 +17,8 @@
     "underscore": "~1.8.3",
     "bootstrap": "~3.3.7",
     "ng-facebook": "~0.1.6",
-    "ngCart": "ngcart#^1.0.0"
+    "ngCart": "ngcart#^1.0.0",
+    "angular-cookies": "^1.5.8",
+    "highcharts-ng": "^0.0.13"
   }
 }

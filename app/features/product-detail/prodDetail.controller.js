@@ -8,7 +8,7 @@
     function prodDetailController(prodDetail) {
         var vm = this;
 
-        vm.prodDetailData = prodDetail[0];
+        vm.prodDetailData = prodDetail;
 
         console.log("Data", vm.prodDetailData);
 

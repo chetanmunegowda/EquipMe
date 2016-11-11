@@ -8,6 +8,7 @@
         vm.getAllProducts = getAllProducts;
         vm.getProductById = getProductById;
         vm.addProduct = addProduct;
+        vm.deleteProductById = deleteProductById;
 
        function addProduct(product) {
             return $http.post('http://localhost:8080/equipme-rest/api/products/', product)
@@ -31,16 +32,25 @@
         }
 
         function getProductById(productId) {
-            var config = {};
-            if (productId) {
-                config.params = {'id': productId};
-            }
-            return $http.get('http://localhost:8080/equipme-rest/api/products/', config)
+            return $http.get('http://localhost:8080/equipme-rest/api/products/'+productId)
                 .then(function (response) {
                     return response.data;
                 }, function (error) {
                     console.log(error);
                 })
         }
+
+        function deleteProductById(productId) {
+            return $http.delete('http://localhost:8080/equipme-rest/api/products/'+productId)
+                .then(function (response) {
+                    Notification.success({message: "Product Deleted Successfully"});
+                    return response.data;
+                }, function (error) {
+                    Notification.error({message: "Error Deleting the Product"});
+                    console.log(error);
+                })
+        }
+
+
     }
 }(angular));
