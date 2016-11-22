@@ -14,7 +14,6 @@
             return $http.post('http://localhost:8080/equipme-rest/api/products/', product)
                 .success(function (result) {
                     Notification.success({message: "Product Added Successfully"});
-                    console.log(result);
                     return result.data;
 
                 })

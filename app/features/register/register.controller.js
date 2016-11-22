@@ -5,22 +5,22 @@
         .module('equipMe.register')
         .controller('registerController', registerController);
 
-    function registerController(UserService, $state , FlashService, Notification) {
+    function registerController(customerService, $state, Notification, $rootScope) {
         var vm = this;
         vm.register = register;
 
         function register() {
             vm.dataLoading = true;
-            UserService.Create(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Registration successful', true);
+
+            customerService.saveCustomer(vm.customer)
+                .then(function (customer) {
+                        console.log(customer);
+                        $rootScope.custId = customer.data.id;
+                        console.log($rootScope.custId);
                         $state.go('loginPage');
-                    } else {
-                        Notification.error({message: "Error in registering"});
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
+                        Notification.success({message: "Customer successfully registered"});
+                }, function () {
+                        Notification.error({message: "Customer successfully registered"});
                 });
         }
     }

@@ -32,12 +32,10 @@
             vm.updateProductForm = true;
             vm.filterProduct =  $filter('filter')(products, {productCategory: vm.product.productCategory,
             productName: vm.product.productname})[0];
-            console.log(vm.filterProduct)
         }
 
         function deleteProduct(productId) {
             productService.deleteProductById(productId).then(function(response) {
-                console.log(response.data);
                 $state.go('productsPage');
             });
         }

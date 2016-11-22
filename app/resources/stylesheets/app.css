@@ -5,8 +5,8 @@ body {
 
 #equipme-header {
     border-radius: 0;
-    background-color: #1C86EE;
-    border-color: #1b6d85;
+    background-color: #C3C3C3;
+    border-color: #C3C3C3;
 }
 
 .clear {
@@ -25,7 +25,7 @@ body {
     width: 100%;
     padding-top: 0.75em;
     height: 3em;
-    background-color: #104E8B;
+    background-color: #C3C3C3;
     color: #0f0f0f;
 }
 
@@ -69,3 +69,7 @@ body {
     background-color: #FFF;
 }
 
+.form-group.required .control-label:after {
+    content:"*";
+    color:red;
+}

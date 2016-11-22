@@ -14,7 +14,9 @@
             'equipMe.prodCart',
             'equipMe.addProduct',
             'equipMe.updateProduct',
+            'equipMe.viewOrder',
             'equipMe.viewsales',
+            'equipMe.updateOrder',
 
             //Third Party Directives
             'ngCookies',

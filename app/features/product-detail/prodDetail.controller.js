@@ -12,7 +12,7 @@
 
         console.log("Data", vm.prodDetailData);
 
-        var productId = vm.prodDetailData.productId;
+        var productId = vm.prodDetailData.id;
 
         vm.reviews = [];
 

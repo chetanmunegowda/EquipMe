@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h4>Order Id: {{updateOrderVm.order.id}}</h4>
+        </div>
+    </div>
+    <br/>
+    <div class="row col-xs-offset-3" ng-repeat="orderitem in updateOrderVm.order.orderLineItem">
+        <div class="col-xs-2">
+            <img class="card-img-top" width="100" height="100"  ng-src={{orderitem.product.productImageUrl}} alt="Card image cap">
+        </div>
+        <div class="col-xs-3">
+            <p class="card-text">Name: {{orderitem.product.productName}}</p>
+        </div>
+        <div class="col-xs-2">
+            <p class="card-text">Price: {{orderitem.product.productPrice | currency}}</p>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-10">
+            <form class="form-horizontal" name='updateOrderForm' novalidate role="form">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label" for="orderstatus">Order Status</label>
+                    <div class="col-xs-4">
+                        <select class="form-control" name="orderstatus"
+                                ng-model="updateOrderVm.order.status" id="orderstatus" required>
+                            <option ng-repeat="status in updateOrderVm.orderStatus" value="{{status}}">{{status}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-sm-4">
+                        <button class="btn btn-primary"
+                                ng-click="updateOrderVm.updateProduct()">Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

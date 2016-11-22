@@ -1,52 +1,72 @@
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-        <h4 class="text-center">Enter Shipping Details</h4>
-        <form class="form-horizontal" name="shipmentForm" novalidate>
-            <div class="form-group"
-                 ng-class="{ 'has-error': shipmentForm.name.$dirty && shipmentForm.name.$error.required }">
-                <label for="name">Username</label>
-                <input type="text" name="name" id="name" class="form-control" ng-model="prodCartCheckoutVm.shipment.name"
-                       required/>
-                <span ng-show="shipmentForm.name.$dirty && shipmentForm.name.$error.required" class="help-block">Name is required</span>
-            </div>
-            <div class="form-group"
-                 ng-class="{ 'has-error': shipmentForm.address.$dirty && shipmentForm.address.$error.required }">
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" class="form-control" ng-model="prodCartCheckoutVm.shipment.address"
-                       required/>
-                <span ng-show="shipmentForm.address.$dirty && shipmentForm.address.$error.required" class="help-block">Address is required</span>
-            </div>
-            <div class="form-group"
-                 ng-class="{ 'has-error': shipmentForm.zipcode.$dirty && shipmentForm.zipcode.$error.required }">
-                <label for="zipcode">Zip Code</label>
-                <input type="text" name="zipcode" id="zipcode" class="form-control" ng-model="prodCartCheckoutVm.shipment.zipcode"
-                       required/>
-                <span ng-show="shipmentForm.zipcode.$dirty && shipmentForm.zipcode.$error.required" class="help-block">ZipCode is required</span>
-            </div>
-
-            <div class="form-group"
-                 ng-class="{ 'has-error': shipmentForm.city.$dirty && shipmentForm.city.$error.required }">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city" class="form-control" ng-model="prodCartCheckoutVm.shipment.city"
-                       required/>
-                <span ng-show="shipmentForm.city.$dirty && shipmentForm.city.$error.required" class="help-block">City is required</span>
-            </div>
-
-            <div class="form-group"
-                 ng-class="{ 'has-error': shipmentForm.state.$dirty && shipmentForm.state.$error.required }">
-                <label for="state">State</label>
-                <input type="text" name="state" id="state" class="form-control" ng-model="prodCartCheckoutVm.shipment.state"
-                       required/>
-                <span ng-show="shipmentForm.state.$dirty && shipmentForm.state.$error.required" class="help-block">State is required</span>
-            </div>
-            <div class="form-group">
-                <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="shipmentForm.$invalid" ng-if="!prodCartCheckoutVm.showPayPal" ng-click="prodCartCheckoutVm.confirmOrder()">Confirm Order</button>
+        <div ng-show="false">
+            <h4 class="text-center">Enter Shipping Details</h4>
+            <form class="form-horizontal" name="shipmentForm" novalidate>
+                <div class="form-group"
+                     ng-class="{ 'has-error': shipmentForm.name.$dirty && shipmentForm.name.$error.required }">
+                    <label for="name">Username</label>
+                    <input type="text" name="name" id="name" class="form-control"
+                           ng-model="prodCartCheckoutVm.shipment.name"
+                           required/>
+                    <span ng-show="shipmentForm.name.$dirty && shipmentForm.name.$error.required" class="help-block">Name is required</span>
                 </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': shipmentForm.address.$dirty && shipmentForm.address.$error.required }">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" class="form-control"
+                           ng-model="prodCartCheckoutVm.shipment.address"
+                           required/>
+                    <span ng-show="shipmentForm.address.$dirty && shipmentForm.address.$error.required"
+                          class="help-block">Address is required</span>
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': shipmentForm.zipcode.$dirty && shipmentForm.zipcode.$error.required }">
+                    <label for="zipcode">Zip Code</label>
+                    <input type="text" name="zipcode" id="zipcode" class="form-control"
+                           ng-model="prodCartCheckoutVm.shipment.zipcode"
+                           required/>
+                    <span ng-show="shipmentForm.zipcode.$dirty && shipmentForm.zipcode.$error.required"
+                          class="help-block">ZipCode is required</span>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': shipmentForm.city.$dirty && shipmentForm.city.$error.required }">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="form-control"
+                           ng-model="prodCartCheckoutVm.shipment.city"
+                           required/>
+                    <span ng-show="shipmentForm.city.$dirty && shipmentForm.city.$error.required" class="help-block">City is required</span>
+                </div>
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': shipmentForm.state.$dirty && shipmentForm.state.$error.required }">
+                    <label for="state">State</label>
+                    <input type="text" name="state" id="state" class="form-control"
+                           ng-model="prodCartCheckoutVm.shipment.state"
+                           required/>
+                    <span ng-show="shipmentForm.state.$dirty && shipmentForm.state.$error.required" class="help-block">State is required</span>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" ng-disabled="shipmentForm.$invalid"
+                                ng-if="!prodCartCheckoutVm.showPayPal" ng-click="prodCartCheckoutVm.confirmOrder()">
+                            Confirm Order
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" ng-if="!prodCartCheckoutVm.showPayPal"
+                        ng-click="prodCartCheckoutVm.confirmOrder()">Confirm Order
+                </button>
             </div>
-        </form>
-        <div ng-if="prodCartCheckoutVm.showPayPal" class="text-center">
-            <ngcart-checkout service="paypal" settings="prodCartCheckoutVm.settings"></ngcart-checkout>
+            <div class="text-center" ng-if="prodCartCheckoutVm.showPayPal">
+               <ngcart-checkout template-url="bower_components/ngCart/template/ngCart/checkout.html"
+                                service="paypal" settings="prodCartCheckoutVm.settings"></ngcart-checkout>
+            </div>
         </div>
     </div>
 </div>

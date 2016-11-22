@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row" ng-repeat="order in viewOrderVm.orders">
+        <h4 class="col-xs-offset-2">Order Id: {{order.id}} </h4>
+        <h6 class="col-xs-offset-2">Order Status: {{order.status}}</h6>
+
+        <div class="col-xs-10 col-xs-offset-2" ng-repeat="orderitem in order.orderLineItem">
+            <div class="col-xs-2">
+                <img class="card-img-top" width="100" height="100"  ng-src={{orderitem.product.productImageUrl}} alt="Card image cap">
+            </div>
+            <div class="col-xs-3">
+                <p class="card-text">Name: {{orderitem.product.productName}}</p>
+            </div>
+            <div class="col-xs-2">
+                <p class="card-text">Price: {{orderitem.product.productPrice | currency}}</p>
+            </div>
+            <div class="col-xs-2">
+                <button class="btn btn-primary"
+                        ng-click="viewOrderVm.updateOrder(order.id)">Update Order
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-xs-offset-3" ng-if="!viewOrderVm.orders.length">
+        <h4>No Order History Found.</h4>
+    </div>
+</div>
